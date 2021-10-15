@@ -66,7 +66,7 @@ def printable(l, k):
 def menu(l, prefix="", maxitems=20):
     index = 0
     if isinstance(l, dict):
-        items = list(l.keys())
+        items = sorted(list(l.keys()))
     else:
         items = list(range(len(l)))
 
@@ -142,7 +142,7 @@ if __name__ == "__main__":
     print_info(gamesave)
 
     if args.info_only:
-        os.exit(0)
+        sys.exit(0)
 
     with open(save_path, "rb") as f:
         with open(save_path + ".bak", "wb") as f2:
